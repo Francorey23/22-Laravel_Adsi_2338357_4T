@@ -28,6 +28,17 @@
             <td>{{$employee->salario}}</td>
             <td>{{$employee->hora_inicio}}</td>
             <td>{{$employee->hora_salida}}</td>
+            <td>
+              <a class="btn btn-warning btn-sm" href="{{route('employee.edit', $employee)}} " role="button">Editar</a>
+            </td>
+            <td>
+              <form action="" method="POST">
+                @csrf
+                @method('DELETE')
+                <a class="btn btn-danger btn-sm" href="#" role="button">Eliminar</a>  
+              </form>
+            </td>
+            </td>
           </tr>      
         @endforeach
     </tbody>

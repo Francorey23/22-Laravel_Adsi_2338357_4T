@@ -70,7 +70,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('Employee.edit',compact('employee'));
     }
 
     /**
@@ -82,7 +82,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->nombres = $request->nombres;
+        $employee->apellidos = $request->apellidos;
+        $employee->telefono = $request->telefono;
+        $employee->direccion = $request->direccion;
+        $employee->fecha_nacimiento = $request->fecha_nacimiento;
+        $employee->salario = $request->salario;
+        $employee->hora_inicio = $request->hora_inicio;
+        $employee->hora_salida = $request->hora_salida;
+        $employee->save();
+        return redirect()->route('employee.index');
     }
 
     /**
